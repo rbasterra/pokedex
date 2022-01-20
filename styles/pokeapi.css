@@ -1,5 +1,8 @@
 body {
-  background-color: #f1c0e8;
+  /* background-color: #f1c0e8; */
+  background-color: #a3c4f3;
+  
+  
   margin: 0;
   font-family: rubik;
   color: white;
@@ -11,13 +14,16 @@ body {
 h1 {
   text-transform: uppercase;
   text-align: center;
-  font-size: 54px;
+  font-size: 70px;
+  
+  color:#fbf8cc;
 }
 .card {
   list-style: none;
   padding: 40px;
   /* background-color: #f4f4f4; */
   background-color: #caf0f8;
+  
   
   color: #222;
   
@@ -41,6 +47,8 @@ h1 {
   font-size: 32px;
   font-weight: normal;
   margin-bottom: 0;
+  /* color:#f72585; */
+  color:#e63946;
 }
 .card-subtitle {
   font-weight: lighter;

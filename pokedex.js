@@ -15,7 +15,8 @@ window.addEventListener('load', () => {
    Promise.all(promises).then(results =>{ 
        const pokemon = results.map(result =>({
            name:result.name,
-           image: result.sprites['front_default'],
+        //    image: result.sprites['front_default'],
+            image: result.sprites.other.dream_world.front_default,
            type: result.types.map(type => type.type.name).join(','),
            id: result.id,
            abilities: result.abilities.map (ability => ability.ability.name).join(', '),
@@ -44,7 +45,7 @@ window.addEventListener('load', () => {
         
         const  rows = pokemon.stats.map(stat =>`<tr><td>${stat.stat.name}</td><td>${stat.base_stat}</td><td>${stat.effort}</td></tr>`).join('');
 
-        console.log(rows);
+       
 
         divBack.innerHTML = `<li class='card-back'>
         <div>
@@ -73,16 +74,9 @@ window.addEventListener('load', () => {
             // divBack.innerText = 'probando';
         }
 
-        if (!(divFront === null)){
-            // console.log('aqui divFront" ' + divFront);
-            // console.log('name: ' + divFront.querySelector('.card-title').innerText);
-            // const name = divFront.querySelector('.card-title').innerText;
-            // console.log(name);
-            // console.log(results.find(result => result.name == name.toLowerCase()));
-        }
-
-        }));
-        // box.addEventListener('click', () => console.log('hover'));
+        
+       }));
+       
     });
 
     const displayPokemon = (pokemon) => {
