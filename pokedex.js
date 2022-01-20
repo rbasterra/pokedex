@@ -1,5 +1,5 @@
 
-    
+// Evento para ejecutar cuando se cargue el html
 window.addEventListener('load', () => {   
     const list = document.getElementById('pokedex');
 
@@ -13,6 +13,7 @@ window.addEventListener('load', () => {
    
    
    Promise.all(promises).then(results =>{ 
+       //mapeamos el contenido que queremos de los valores obtenidos con el fetch
        const pokemon = results.map(result =>({
            name:result.name,
         //    image: result.sprites['front_default'],
@@ -29,24 +30,30 @@ window.addEventListener('load', () => {
        displayPokemon(pokemon);
        return pokemon;
     })
+
+    // recibe el valor de la funcion anterior 'pokemon' en 'results'
     .then ((results) =>{
-        // console.log(results.find(result => result.name =='venusaur'));
         
+        //selecciona todos los div class='box'
         const boxes = document.querySelectorAll('.box');
-        // console.log(boxes);
+        
+        //a cada 'box' se le añade un evento 'mouseenter' para girar el objeto y que aparezca la parte de atras
         boxes.forEach(box => box.addEventListener('mouseenter', (e) => {console.log('hover');
         console.log(e.target);
 
+        //selecciona los objetos 'box-back', 'box-front' y 'card-title' del elemento que ha generado el evento
         const divBack = e.target.querySelector('.box-back');
         const divFront = e.target.querySelector('.box-front');
         const name = divFront.querySelector('.card-title').innerText;
+
+        //busca el pokemon del elemento que ha generado el evento mediante la variable name
         const pokemon = results.find(result => result.name == name.toLowerCase());
         console.log(pokemon);
         
+        //crea las filas de la tabla de estadisticas
         const  rows = pokemon.stats.map(stat =>`<tr><td>${stat.stat.name}</td><td>${stat.base_stat}</td><td>${stat.effort}</td></tr>`).join('');
-
-       
-
+     
+        //rellena el divBack
         divBack.innerHTML = `<li class='card-back'>
         <div>
         <p class='card=subtitle'>Abilities: ${pokemon.abilities}</p>
@@ -67,12 +74,6 @@ window.addEventListener('load', () => {
         </table>
         </dvi>
         </li>`
-
-
-        if (!(divBack === null)){
-            console.log('aqui divBack: ' + divBack);
-            // divBack.innerText = 'probando';
-        }
 
         
        }));

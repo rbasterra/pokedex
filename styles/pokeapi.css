@@ -65,10 +65,10 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 20px;
 }
-.card:hover {
+/* .card:hover { */
   /* animation: bounce 0.5s linear; */
   /* transform: rotateY(180deg); */
-}
+/* } */
 @keyframes bounce {
   20% {
     transform: translateY(-6px);
