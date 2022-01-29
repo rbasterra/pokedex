@@ -1,59 +1,137 @@
 body {
-    background-color: orangered;
-    margin: 0;
-    font-family: rubik;
-    color: white;
+  /* background-color: #f1c0e8; */
+  background-color: #a3c4f3;
+  
+  
+  margin: 0;
+  font-family: rubik;
+  color: white;
+}
+.container {
+  padding: 40px;
+  margin: 0 auto;
+}
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 70px;
+  
+  color:#fbf8cc;
+}
+.card {
+  list-style: none;
+  padding: 40px;
+  /* background-color: #f4f4f4; */
+  background-color: #caf0f8;
+  
+  
+  color: #222;
+  
+  text-align: center;
+  /* perspective: 1000px; */
+}
+
+.card-back{
+  list-style: none;
+  padding: 40px;
+  color: #222;
+  text-align: center;
+
+  display:flex;
+  flex-flow:column wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.card-title {
+  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 0;
+  /* color:#f72585; */
+  color:#e63946;
+}
+.card-subtitle {
+  font-weight: lighter;
+  color: #666;
+  
+  margin-top: 5px;
+}
+.card-image {
+  height: 180px;
+}
+#pokedex {
+  padding-inline-start: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 20px;
+}
+/* .card:hover { */
+  /* animation: bounce 0.5s linear; */
+  /* transform: rotateY(180deg); */
+/* } */
+@keyframes bounce {
+  20% {
+    transform: translateY(-6px);
   }
-  .container {
-    padding: 40px;
-    margin: 0 auto;
+  40% {
+    transform: translateY(0px);
   }
-  h1 {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 54px;
+  60% {
+    transform: translateY(-2px);
   }
-  .card {
-    list-style: none;
-    padding: 40px;
-    background-color: #f4f4f4;
-    color: #222;
-    text-align: center;
+  80% {
+    transform: translateY(-0px);
   }
-  .card-title {
-    text-transform: uppercase;
-    font-size: 32px;
-    font-weight: normal;
-    margin-bottom: 0;
-  }
-  .card-subtitle {
-    font-weight: lighter;
-    color: #666;
-    margin-top: 5px;
-  }
-  .card-image {
-    height: 180px;
-  }
-  #pokedex {
-    padding-inline-start: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 20px;
-  }
-  .card:hover {
-    animation: bounce 0.5s linear;
-  }
-  @keyframes bounce {
-    20% {
-      transform: translateY(-6px);
-    }
-    40% {
-      transform: translateY(0px);
-    }
-    60% {
-      transform: translateY(-2px);
-    }
-    80% {
-      transform: translateY(-0px);
-    }
-  }
+}
+
+/* ************************* */
+
+.box {
+  background-color: transparent;
+  /* width: 220px;*/
+  height: 400px; 
+  width: 100%;
+  /* height: 100%; */
+  border: 1px solid #eeeeee;
+  perspective: 1000px;
+}
+.box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.box:hover .box-inner {
+  transform: rotateY(180deg);
+}
+.box-front,
+.box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.box-front {
+  background-color: #cccccc;
+  color: #111111;
+  
+}
+.box-back {
+  /* background-color: #8ebf42; */
+  background-color: #b9fbc0;
+  color: #eeeeee;
+  transform: rotateY(180deg);
+}
+
+/* *********** */
+
+table{
+  text-align: center;
+}
+
+tr td{
+  padding: 0.5 rem;
+  font-size: 1rem;
+}
